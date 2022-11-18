@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
@@ -5,6 +6,7 @@ import cors from "cors";
 import userRouter from "./routes/user.routes.js";
 import employeeRouter from "./routes/employee.routes.js";
 
+dotenv.config();
 const app = express();
 const port = process.env.PORT || 4062;
 

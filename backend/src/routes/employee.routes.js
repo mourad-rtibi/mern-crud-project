@@ -1,19 +1,44 @@
 import BaseRouter from "./base.routes.js";
 import EmployeeCtl from "./../controllers/employee.controller.js";
+import { checkToken } from "./../middleware/Auth.js";
 
 export default BaseRouter([
-  { method: "GET", path: "/", func: new EmployeeCtl().listAllEmployess },
-  { method: "POST", path: "/", func: new EmployeeCtl().createEmployee },
+  {
+    method: "GET",
+    path: "/",
+    mWare: checkToken,
+    func: new EmployeeCtl().listAllEmployess,
+  },
+  {
+    method: "POST",
+    path: "/",
+    mWare: checkToken,
+    func: new EmployeeCtl().createEmployee,
+  },
   {
     method: "PUT",
     path: "/update/:id",
+    mWare: checkToken,
+
     func: new EmployeeCtl().updateEmployee,
   },
-  { method: "DELETE", path: "/drop/:id", func: new EmployeeCtl().dropEmployee },
-  { method: "GET", path: "/list/:id", func: new EmployeeCtl().listByUserId },
+  {
+    method: "DELETE",
+    path: "/drop/:id",
+    mWare: checkToken,
+    func: new EmployeeCtl().dropEmployee,
+  },
+  {
+    method: "GET",
+    path: "/list/:id",
+    mWare: checkToken,
+    func: new EmployeeCtl().listByUserId,
+  },
   {
     method: "GET",
     path: "/search/:name",
+    mWare: checkToken,
+
     func: new EmployeeCtl().seachEmployee,
   },
 ]);

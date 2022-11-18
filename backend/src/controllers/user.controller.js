@@ -28,7 +28,8 @@ export default class userCtrl extends BaseController {
     });
     await this.disconnect();
 
-    const token = false; // jwt.sign({ _id: newUser._id }, "secreta");
+    const token = jwt.sign(newUser.id, process.env.SECRET);
+
     if (typeof newUser.id === "undefined")
       throw response.throw({ message: "Can't create user!" });
     return response.normal({
@@ -56,7 +57,7 @@ export default class userCtrl extends BaseController {
     if (!passwordMatch)
       throw response.throw({ message: "Password don't match" });
 
-    const token = false; //jwt.sign({ _id: nuevoUs._id }, "secreta");
+    const token = jwt.sign(user.id, process.env.SECRET);
     return response.normal({
       statusCode: 201,
       data: {
