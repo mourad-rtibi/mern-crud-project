@@ -8,11 +8,11 @@ CRUD Project using MERN stack, manage employees and it's login user.
 
 [Data model with Prisma](/backend/prisma/schema.prisma)
 
-#### Prepare MongoDB for replica set
+#### Compose up
 
-According to the Prisma documentation for the [MongoDB connector](https://www.prisma.io/docs/concepts/database-connectors/mongodb), it's neccesary configure MongoDB as a replica set, run the following [shell script](rs-init.sh), which is already in the MongoDB container:
+According to the Prisma documentation for the [MongoDB connector](https://www.prisma.io/docs/concepts/database-connectors/mongodb), it's neccesary configure MongoDB as a replica set, run the following [shell script](run.sh), to start the services:
 
-`docker exec mongo-primary /scripts/rs-init.sh`
+`bash run.sh`
 
 ### Ports
 

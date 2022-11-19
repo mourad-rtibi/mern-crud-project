@@ -4,12 +4,12 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME
       - MONGO_INITDB_ROOT_PASSWORD
+      - MONGO_REPLICA_ID=rs0
       - MONGO_REPLICA_HOST_PRIMARY=mongo-db
       # - MONGO_REPLICA_HOST_SECONDARY=mongo-rs
-      - MONGO_REPLICA_ID=rs0
     container_name: mongo-primary
     restart: "always"
-    # depends_on:
+    # depends_on:q
     #   - mongo-rs
     ports:
       - "27017:27017"
