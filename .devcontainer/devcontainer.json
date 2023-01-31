@@ -1,14 +1,14 @@
 {
-  "name": "backend",
-  "dockerComposeFile": ["../../docker-compose.yml"],
-  "service": "backend",
+  "name": "mern-crud/node",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "node",
   "shutdownAction": "none",
   "customizations": {
     "vscode": {
       "extensions": [
         "esbenp.prettier-vscode",
         "Prisma.prisma",
-        "xabikos.JavaScriptSnippets"
+        "dsznajder.es7-react-js-snippets"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh"
@@ -16,6 +16,6 @@
     }
   },
   "postCreateCommand": "bash config.sh",
-  "workspaceFolder": "/mern-crud-project/backend",
+  "workspaceFolder": "/mern-crud-project",
   "remoteUser": "node"
 }

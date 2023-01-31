@@ -35,7 +35,7 @@ services:
   #       "--replSet",
   #       "rs0"
   #     ]
-  backend:
+  node:
     image: jhordyess/node:16
     depends_on:
       - mongo-db
@@ -46,10 +46,3 @@ services:
       - DATABASE_URL
     volumes:
       - .:/mern-crud-project:cached
-  # frontend:
-  #   image: jhordyess/node:16
-  #   volumes:
-  #     - .:/mern-crud-project:cached
-  #   command: /bin/sh -c "while sleep 1000; do :; done"
-  #   ports:
-  #     - "3640:3640"
