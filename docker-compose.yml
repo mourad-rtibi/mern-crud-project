@@ -6,11 +6,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD
       - MONGO_REPLICA_ID=rs0
       - MONGO_REPLICA_HOST_PRIMARY=mongo-db
-      # - MONGO_REPLICA_HOST_SECONDARY=mongo-rs
     container_name: mongo-primary
-    restart: "always"
-    # depends_on:q
-    #   - mongo-rs
     ports:
       - "27017:27017"
     entrypoint:
@@ -22,21 +18,8 @@ services:
       ]
     volumes:
       - ./rs-init.sh:/scripts/rs-init.sh
-  # mongo-rs:
-  #   image: mongo
-  #   restart: always
-  #   container_name: mongo-secondary
-  #   ports:
-  #     - '27018:27017'
-  #   entrypoint:
-  #     [
-  #       "/usr/bin/mongod",
-  #       "--bind_ip_all",
-  #       "--replSet",
-  #       "rs0"
-  #     ]
   node:
-    image: jhordyess/node:16
+    image: jhordyess/node
     depends_on:
       - mongo-db
     command: /bin/sh -c "while sleep 1000; do :; done"
